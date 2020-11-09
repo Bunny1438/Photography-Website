@@ -586,12 +586,12 @@
 
         <div class="row block-9">
           <div class="col-md-6 ftco-animate">
-            <form action="#" class="contact-form p-4 p-md-5 py-md-5">
+            <form action="#" class="contact-form p-4 p-md-5 py-md-5" name="form1">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
+                <input type="text" class="form-control" placeholder="Your Name" id="name" required="">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
+                <input type="text" class="form-control" placeholder="Your Email" id="Email" required="">
               </div>
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="Subject">
@@ -600,7 +600,7 @@
                 <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
               </div>
               <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" onclick="validate()">
               </div>
             </form>
           </div>
@@ -637,6 +637,29 @@
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
+ <script type="text/javascript">
+        function validate(){
+            var nam = document.getElementById('name').value;
+            var inputText = document.getElementById('Email');
+            
+        var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if (!isNaN(nam)) {
+    alert("Name not valid");
+    return false;
+  }         
+                       if(!inputText.value.match(mailformat))
+{
+
+alert("You have entered an invalid email address!");
+document.form1.Email.focus();
+return false;
+}
+else
+{
+ return true;
+}
+        }
+    </script>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
